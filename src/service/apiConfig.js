@@ -2,6 +2,7 @@ import axios from "axios";
 import axi from "./axiConfig";
 import router from "@/router";
 import store from "@/store"
+import {getMe, refreshToken} from "@/service/authService";
 
 const api = axios.create({
   //#TODO: Implement production url
@@ -20,9 +21,12 @@ api.interceptors.response.use(
     return response;
   },
   async (error) => {
-    if (error.response.status === 401) {
+    console.log(error)
+    if (error.response.status === 401 && error.config.url !== "/auth/token/refresh/") {
       try {
-        await axi.post("auth/token/refresh/");
+        await refreshToken();
+        const user = (getMe()).data;
+        console.log(user)
       } catch (e) {
         router.push({name: "LandingView"});
         store.commit("userState/setLogged", null);

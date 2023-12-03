@@ -9,7 +9,7 @@ export default {
     }
   },
   mutations: {
-    setLoggedUser: (state) => (loggedUser) => {
+    setLoggedUser: (state, loggedUser) => {
       state.loggedUser = loggedUser;
     }
   },

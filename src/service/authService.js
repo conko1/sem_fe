@@ -11,3 +11,7 @@ export async function logout() {
 export async function getMe() {
   return await api.get(`/auth/user/`);
 }
+
+export async function refreshToken() {
+  return await api.post(`/auth/token/refresh/`);
+}
