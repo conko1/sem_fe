@@ -2,7 +2,7 @@
   <main class="form-signin w-75 m-auto">
     <div class="d-flex align-items-center flex-column">
       <h1 class="h3 mb-3 fw-normal">Prihlásenie</h1>
-      <div class="client-error" v-if="v$.email.$error" v-for="(error) in v$.email.$errors">{{ error.$message }}</div>
+      <div class="color-red" v-if="v$.email.$error" v-for="(error) in v$.email.$errors">{{ error.$message }}</div>
       <div class="form-floating w-100 mb-4">
         <input
           type="email"
@@ -12,7 +12,7 @@
         >
         <label for="floatingInput">Email</label>
       </div>
-      <div class="client-error" v-if="v$.password.$error" v-for="(error) in v$.password.$errors">{{ error.$message }}</div>
+      <div class="color-red" v-if="v$.password.$error" v-for="(error) in v$.password.$errors">{{ error.$message }}</div>
       <div class="form-floating w-100 mb-4">
         <input
           type="password"
