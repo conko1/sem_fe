@@ -3,7 +3,7 @@ import appState from "@/store/appState";
 
 const store = createStore({
   modules: {
-    appState,
+    appState: appState,
   },
   // strict: true,
 })
