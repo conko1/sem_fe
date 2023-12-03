@@ -17,3 +17,7 @@
 .link-secondary:hover {
     color: #0d6efd !important;
 }
+
+.text-color-default {
+    color: #2c3e50 !important;
+}
