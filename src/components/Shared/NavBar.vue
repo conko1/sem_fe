@@ -15,9 +15,6 @@
       <router-link to="/login">
         <button type="button" class="btn btn-outline-primary me-2">Login</button>
       </router-link>
-      <router-link to="/register">
-        <button type="button" class="btn btn-primary">Sign-up</button>
-      </router-link>
     </div>
   </header>
 </template>
