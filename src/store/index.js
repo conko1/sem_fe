@@ -1,9 +1,9 @@
 import { createStore } from "vuex";
-import appState from "@/store/appState";
+import userState from "@/store/userState";
 
 const store = createStore({
   modules: {
-    appState: appState,
+    userState,
   },
   // strict: true,
 })

@@ -1,6 +1,7 @@
 import axios from "axios";
 import axi from "./axiConfig";
 import router from "@/router";
+import store from "@/store"
 
 const api = axios.create({
   //#TODO: Implement production url
@@ -10,41 +11,25 @@ const api = axios.create({
 
 api.interceptors.response.use(
   (response) => {
-    if (response.config.url === "user/me/") {
-      store.commit("userState/setMe", response.data)
-      store.commit("userState/setLogged", {logged: true});
+    if (response.config.url === "auth/user/") {
+      store.commit("userState/setLoggedUser", response.data)
     } else if (response.config.url === "auth/logout/") {
-      store.commit("userState/setLogged", {logged: false});
-      store.commit("userState/setMe", null);
+      store.commit("userState/setLoggedUser", null);
     }
 
     return response;
   },
   async (error) => {
     if (error.response.status === 401) {
-      // const refresh = store.getters.getTokens.refresh;
-      /*const response =*/
-      let user = null;
       try {
-        user = (await axi.post("auth/token/refresh/")).user;
+        await axi.post("auth/token/refresh/");
       } catch (e) {
-        router.push({name: "Landing"});
-        store.commit("userState/setLogged", {logged: false});
-        store.commit("userState/setMe", null);
+        router.push({name: "LandingView"});
+        store.commit("userState/setLogged", null);
         return
       }
-      if (
-        !["alex_admin", "makler", "financnik", "uctovnik", "pravnik", "fotograf", "znalec"]
-          .includes(user.role)
-      ) {
-        router.push({name: "Landing"});
-        store.commit("userState/setLogged", {logged: false});
-        store.commit("userState/setMe", null);
-      }
-
       return axi.request(error.config);
     }
-
     return Promise.reject(error);
   }
 );
