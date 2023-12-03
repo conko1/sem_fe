@@ -36,6 +36,8 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.nav-link {
+  font-size: 1.15rem !important;
+}
 </style>

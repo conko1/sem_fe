@@ -22,7 +22,8 @@
       <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
         <div class="my-3 p-3">
           <h2 class="display-5 mb-5">Vyskúšajte online riešenie budúcnosti !</h2>
-          <p class="lead"><span class="fw-bold">HourWatch</span> prináša revolučné prostriedky v riadení pracovnej sily. Naša aplikácia je
+          <p class="lead"><span class="fw-bold">HourWatch</span>
+            prináša revolučné prostriedky v riadení pracovnej sily. Naša aplikácia je
             navrhnutá tak, aby zjednodušila sledovanie času, eliminovala chybu a umožnila vášmu tímu sústrediť sa na to,
             čo je dôležité - na napredovanie vášho podniku.</p>
         </div>
