@@ -2,7 +2,7 @@
   <main class="form-signin w-75 m-auto">
     <div class="d-flex align-items-center flex-column">
       <h1 class="h3 mb-3 fw-normal">Registrácia</h1>
-      <div class="color-red" v-if="v$.firstName.$error" v-for="(error) in v$.firstName.$errors">{{ error.$message }}</div>
+      <div class="client-error" v-if="v$.firstName.$error" v-for="(error) in v$.firstName.$errors">{{ error.$message }}</div>
       <div class="form-floating w-100 mb-4">
         <input
           type="text"
@@ -12,7 +12,7 @@
         >
         <label for="name-input">Meno</label>
       </div>
-      <div class="color-red" v-if="v$.lastName.$error" v-for="(error) in v$.lastName.$errors">{{ error.$message }}</div>
+      <div class="client-error" v-if="v$.lastName.$error" v-for="(error) in v$.lastName.$errors">{{ error.$message }}</div>
       <div class="form-floating w-100 mb-4">
         <input
           type="text"
@@ -22,7 +22,7 @@
         >
         <label for="last-name-input">Priezvisko</label>
       </div>
-      <div class="color-red" v-if="v$.email.$error" v-for="(error) in v$.email.$errors">{{ error.$message }}</div>
+      <div class="client-error" v-if="v$.email.$error" v-for="(error) in v$.email.$errors">{{ error.$message }}</div>
       <div class="form-floating w-100 mb-4">
         <input
           type="email"
@@ -32,7 +32,7 @@
         >
         <label for="email-input">Email</label>
       </div>
-      <div class="color-red" v-if="v$.password1.$error" v-for="(error) in v$.password1.$errors">{{ error.$message }}</div>
+      <div class="client-error" v-if="v$.password1.$error" v-for="(error) in v$.password1.$errors">{{ error.$message }}</div>
       <div class="form-floating w-100 mb-4">
         <input
           type="password"
@@ -42,7 +42,7 @@
         >
         <label for="password1-input">Heslo</label>
       </div>
-      <div class="color-red" v-if="v$.password2.$error" v-for="(error) in v$.password2.$errors">{{ error.$message }}</div>
+      <div class="client-error" v-if="v$.password2.$error" v-for="(error) in v$.password2.$errors">{{ error.$message }}</div>
       <div class="form-floating w-100 mb-4">
         <input
           type="password"
