@@ -1,8 +1,5 @@
 <template>
-  <div class="container">
-    <nav-bar/>
     <router-view/>
-  </div>
 </template>
 
 <style lang="scss">
@@ -27,6 +24,8 @@ nav {
   }
 }
 </style>
-<script setup>
-import NavBar from "@/components/Shared/NavBar.vue";
+<script>
+export default {
+  name: "App",
+}
 </script>

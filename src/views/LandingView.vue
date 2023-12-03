@@ -29,6 +29,9 @@
         </div>
       </div>
     </div>
+    <p class="fnt-1-15-rem user-select-none mt-3">Dostali ste pozvánku do aplikácie ? Vytvorte si účet
+      <router-link to="/register" class="primary cursor-pointer">TU</router-link>
+    </p>
   </main>
 </template>
 

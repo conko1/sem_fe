@@ -5,3 +5,15 @@
 .primary {
     color: #0d6efd;
 }
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.fnt-1-15-rem {
+    font-size: 1.15rem !important;
+}
+
+.link-secondary:hover {
+    color: #0d6efd !important;
+}

@@ -1,45 +1,45 @@
 <template>
-  <main class="form-signin w-75 m-auto">
-    <div class="d-flex align-items-center flex-column">
-      <h1 class="h3 mb-3 fw-normal">Prihlásenie</h1>
-      <div class="color-red" v-if="error">Unable to login with provided credentials</div>
-      <div class="color-red" v-if="v$.email.$error" v-for="(error) in v$.email.$errors">{{ error.$message }}</div>
-      <div class="form-floating w-100 mb-4">
-        <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          v-model="v$.email.$model"
-        >
-        <label for="floatingInput">Email</label>
+    <main class="form-signin w-75 m-auto">
+      <div class="d-flex align-items-center flex-column">
+        <h1 class="h3 mb-3 fw-normal">Prihlásenie</h1>
+        <div class="color-red" v-if="error">Unable to login with provided credentials</div>
+        <div class="color-red" v-if="v$.email.$error" v-for="(error) in v$.email.$errors">{{ error.$message }}</div>
+        <div class="form-floating w-100 mb-4">
+          <input
+            type="email"
+            class="form-control"
+            id="floatingInput"
+            v-model="v$.email.$model"
+          >
+          <label for="floatingInput">Email</label>
+        </div>
+        <div class="color-red" v-if="v$.password.$error" v-for="(error) in v$.password.$errors">{{ error.$message }}</div>
+        <div class="form-floating w-100 mb-4">
+          <input
+            :type="[passwordPlain ? 'text' : 'password']"
+            class="form-control position-relative"
+            id="floatingPassword"
+            v-model="v$.password.$model"
+          >
+          <img
+            v-if="!passwordPlain"
+            class="position-absolute eye-icon"
+            src="@/images/eye-slash-icon.svg"
+            alt="PASSWORD"
+            @click="passwordPlain = true"
+          >
+          <img
+            v-else
+            class="position-absolute eye-icon"
+            src="@/images/eye-fill-icon.svg"
+            alt="TEXT"
+            @click="passwordPlain = false"
+          />
+          <label for="floatingPassword">Heslo</label>
+        </div>
+        <button class="btn btn-primary w-50 py-2" type="submit" @click="login">Prihlásiť</button>
       </div>
-      <div class="color-red" v-if="v$.password.$error" v-for="(error) in v$.password.$errors">{{ error.$message }}</div>
-      <div class="form-floating w-100 mb-4">
-        <input
-          :type="[passwordPlain ? 'text' : 'password']"
-          class="form-control position-relative"
-          id="floatingPassword"
-          v-model="v$.password.$model"
-        >
-        <img
-          v-if="!passwordPlain"
-          class="position-absolute eye-icon"
-          src="@/images/eye-slash-icon.svg"
-          alt="PASSWORD"
-          @click="passwordPlain = true"
-        >
-        <img
-          v-else
-          class="position-absolute eye-icon"
-          src="@/images/eye-fill-icon.svg"
-          alt="TEXT"
-          @click="passwordPlain = false"
-        />
-        <label for="floatingPassword">Heslo</label>
-      </div>
-      <button class="btn btn-primary w-50 py-2" type="submit" @click="login">Prihlásiť</button>
-    </div>
-  </main>
+    </main>
 </template>
 
 <script>
