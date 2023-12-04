@@ -39,7 +39,6 @@
         </div>
         <button class="btn btn-primary w-50 py-2" type="submit" @click="login">Prihlásiť</button>
       </div>
-      <div @click="a">asd</div>
     </main>
 </template>
 
@@ -60,7 +59,7 @@ export default {
       try {
         const loggedUser = (await login({email: this.email, password: this.password})).data.user;
         this.$store.commit("userState/setLoggedUser", loggedUser)
-        this.$router.push({name: "DashboardView"});
+        this.$router.push({name: "CalendarView"});
         this.error = false;
       } catch (e) {
         this.error = true;

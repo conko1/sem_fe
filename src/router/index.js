@@ -9,8 +9,9 @@ import PageNotFound from "@/views/PageNotFound.vue";
 
 import store from "@/store/index";
 import {getMe, refreshToken} from "@/service/authService";
+import CalendarView from "@/views/CalendarView.vue";
 
-const guardedRoutes = ["DashboardView"];
+const guardedRoutes = ["DashboardView", "CalendarView"];
 
 const routes = [
   {
@@ -38,7 +39,14 @@ const routes = [
   {
     path: "/dashboard",
     name: "DashboardView",
-    component: DashboardView
+    component: DashboardView,
+    children: [
+      {
+        path: "calendar/",
+        name: "CalendarView",
+        component: CalendarView
+      }
+    ],
   },
   {
     path: "/:pathMatch(.*)*",
@@ -55,13 +63,13 @@ const router = createRouter({
 
 router.beforeEach(async (to, from, next) => {
   const currentUser = store.getters["userState/getLoggedUser"];
-  console.log(currentUser)
   if (guardedRoutes.includes(to.name) && !currentUser) {
     try {
       await refreshToken();
       const user = (await getMe()).data;
       store.commit("userState/setLoggedUser", user);
       next(to);
+      return;
     } catch (e) {
       store.commit("userState/setLoggedUser", null);
       next({name: "LandingView"});
