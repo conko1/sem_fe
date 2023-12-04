@@ -21,12 +21,11 @@ api.interceptors.response.use(
     return response;
   },
   async (error) => {
-    console.log(error)
     if (error.response.status === 401 && error.config.url !== "/auth/token/refresh/") {
       try {
         await refreshToken();
         const user = (getMe()).data;
-        console.log(user)
+        store.commit("userState/setLogged", user);
       } catch (e) {
         router.push({name: "LandingView"});
         store.commit("userState/setLogged", null);
