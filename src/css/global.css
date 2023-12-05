@@ -21,3 +21,7 @@
 .text-color-default {
     color: #2c3e50 !important;
 }
+
+.rotate-180 {
+    transform: rotate(180deg);
+}

@@ -42,7 +42,7 @@ const routes = [
     component: DashboardView,
     children: [
       {
-        path: "calendar/",
+        path: "",
         name: "CalendarView",
         component: CalendarView
       }

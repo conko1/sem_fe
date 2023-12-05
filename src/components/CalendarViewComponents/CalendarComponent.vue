@@ -1,8 +1,14 @@
 <template>
   <div class="calendar-wrapper">
     <div class="calendar-navigation">
-      <div class="calendar-button cursor-pointer user-select-none fnt-1-15-rem" @click="previousWeek">Dozadu</div>
-      <div class="calendar-button cursor-pointer user-select-none fnt-1-15-rem" @click="nextWeek">Dopredu</div>
+      <div class="calendar-button cursor-pointer user-select-none fnt-1-15-rem" @click="previousWeek">
+        <img src="@/images/back-icon.png" alt="BACK">
+        Dozadu
+      </div>
+      <div class="calendar-button cursor-pointer user-select-none fnt-1-15-rem" @click="nextWeek">
+        Dopredu
+        <img src="@/images/back-icon.png" class="rotate-180" alt="BACK">
+      </div>
     </div>
     <div id="calendar">
       <DayPilotCalendar :config="config" ref="calendarRef" />
@@ -68,7 +74,7 @@ export default {
       barHidden: true,
       durationBarVisible: false,
       businessBeginsHour: 6,
-      headerDateFormat: "d MMMM yyyy",
+      headerDateFormat: "d.M ddd",
       viewType: "WorkWeek",
       cellDuration: 60,
       startDate: DayPilot.Date.today(),

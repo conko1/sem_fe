@@ -3,7 +3,7 @@
     <header
       class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
       <div class="col-md-3 mb-2 mb-md-0">
-        <router-link to="/" class="d-inline-flex link-body-emphasis text-decoration-none display-5 fw-medium">
+        <router-link to="/dashboard" class="d-inline-flex link-body-emphasis text-decoration-none display-5 fw-medium">
           <span class="primary">Hour</span>Watch
         </router-link>
       </div>
@@ -13,7 +13,7 @@
           <router-link
             class="nav-link fnt-1-15-rem px-2"
             :class="{'link-secondary': currentNavigationName !== 'CalendarView' }"
-            to="/"
+            to="/dashboard"
           >
             Kalendár
           </router-link>
