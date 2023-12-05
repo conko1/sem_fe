@@ -11,4 +11,6 @@ import "bootstrap-icons/font/bootstrap-icons.css"
 
 import "./css/global.css"
 
-createApp(App).use(store).use(router).mount('#app')
+import vSelect from "vue-select";
+
+createApp(App).component("v-select", vSelect).use(store).use(router).mount('#app')

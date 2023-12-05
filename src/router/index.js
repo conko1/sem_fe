@@ -10,6 +10,7 @@ import PageNotFound from "@/views/PageNotFound.vue";
 import store from "@/store/index";
 import {getMe, refreshToken} from "@/service/authService";
 import CalendarView from "@/views/CalendarView.vue";
+import StatisticsView from "@/views/StatisticsView.vue";
 
 const guardedRoutes = ["DashboardView", "CalendarView"];
 
@@ -43,9 +44,14 @@ const routes = [
     children: [
       {
         path: "",
+        name: "StatisticsView",
+        component: StatisticsView
+      },
+      {
+        path: "calendar/",
         name: "CalendarView",
         component: CalendarView
-      }
+      },
     ],
   },
   {

@@ -12,19 +12,19 @@
         <li>
           <router-link
             class="nav-link fnt-1-15-rem px-2"
-            :class="{'link-secondary': currentNavigationName !== 'CalendarView' }"
+            :class="{'link-secondary': currentNavigationName !== 'StatisticsView' }"
             to="/dashboard"
           >
-            Kalendár
+            Štatistiky
           </router-link>
         </li>
         <li>
           <router-link
             class="nav-link fnt-1-15-rem px-2"
-            :class="{'link-secondary': currentNavigationName !== '/pricing' }"
-            to=""
+            :class="{'link-secondary': currentNavigationName !== 'CalendarView' }"
+            to="/dashboard/calendar"
           >
-            Štatistiky
+            Kalendár
           </router-link>
         </li>
       </ul>
