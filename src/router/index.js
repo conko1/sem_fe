@@ -68,16 +68,16 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  const currentUser = store.getters["userState/getLoggedUser"];
+  const currentUser = store.getters["loggedState/getLoggedUser"];
   if (guardedRoutes.includes(to.name) && !currentUser) {
     try {
       await refreshToken();
       const user = (await getMe()).data;
-      store.commit("userState/setLoggedUser", user);
+      store.commit("loggedState/setLoggedUser", user);
       next(to);
       return;
     } catch (e) {
-      store.commit("userState/setLoggedUser", null);
+      store.commit("loggedState/setLoggedUser", null);
       next({name: "LandingView"});
       return;
     }

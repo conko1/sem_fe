@@ -48,7 +48,7 @@ export default {
       try {
         await logout();
         this.$router.push({name: "LandingView"});
-        this.$store.commit("userState/setLoggedUser", null);
+        this.$store.commit("loggedState/setLoggedUser", null);
       } catch (e) {
 
       }

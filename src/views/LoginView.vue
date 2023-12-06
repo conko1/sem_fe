@@ -58,7 +58,7 @@ export default {
       if (!valid) return;
       try {
         const loggedUser = (await login({email: this.email, password: this.password})).data.user;
-        this.$store.commit("userState/setLoggedUser", loggedUser)
+        this.$store.commit("loggedState/setLoggedUser", loggedUser)
         this.$router.push({name: "CalendarView"});
         this.error = false;
       } catch (e) {

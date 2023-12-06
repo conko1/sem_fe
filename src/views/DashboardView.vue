@@ -9,8 +9,12 @@ import NavBarDashboard from "@/components/Shared/NavBarDashboard.vue";
 
 export default {
   name: "DashboardView",
-  components: {NavBarDashboard}
-
+  components: {NavBarDashboard},
+  async created() {
+    await this.$store.dispatch("eventState/initializeEventTypes");
+    await this.$store.dispatch("eventState/initializeEvents");
+    this.$store.dispatch("usersState/initializeEmployees");
+  }
 }
 </script>
 

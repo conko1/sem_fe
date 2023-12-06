@@ -1,9 +1,14 @@
 import { createStore } from "vuex";
-import userState from "@/store/userState";
+
+import loggedState from "@/store/loggedState";
+import usersState from "@/store/usersState";
+import eventState from "@/store/eventState";
 
 const store = createStore({
   modules: {
-    userState,
+    loggedState,
+    usersState,
+    eventState
   },
   // strict: true,
 })
